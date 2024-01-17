@@ -2,6 +2,12 @@ body {
     background-color:white;
 }
 
+div.button {display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px
+}
+
 .container { display: flex;
             justify-content: center;
             align-items: center;
