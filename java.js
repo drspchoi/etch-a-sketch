@@ -21,6 +21,7 @@ function createGRID(numberOfGrid) {
         for (let i=1; i<=numberOfGrid; i++) {
             const grid=document.createElement("div");
             grid.classList.add("grid")
+            
             div.appendChild(grid)
     }
 })}
@@ -31,6 +32,13 @@ function number() {
     const number=Number(numberOfGrid)
     createDIV(number);
     createGRID(number);
+    document.querySelectorAll('.grid').forEach (grid => {
+        grid.addEventListener('mouseover',() => {grid.setAttribute('style', "background-color: red")})
+        grid.addEventListener('mouseout',() => {grid.setAttribute('style', "background-color: white")})
+        //grid.onmouseover=function() {grid.setAttribute('style', "background-color: red")}
+        //grid.addEventListener('mouseover',mouseover)
+    })
 }
 
-buttons.addEventListener('click',number)
+//buttons.addEventListener('click',number)
+buttons.onclick=function() {number()}
