@@ -1,20 +1,27 @@
-let numberOfGrid=10;
+let numberOfGrid=20;
 
-function createGrid() {
-    const container=document.querySelector("div");
+function createDIV(numberOfGrid) {
+    for (let i=0;i<= numberOfGrid;i++) {
+
     const grid=document.createElement("div");
-    grid.classList.add("grid")
-    //grid.setAttribute('style','border: 1px solid black')
-    //grid.textContent="fuck!!"
-    container.appendChild(grid)
+    grid.classList.add("container")
+    document.body.append(grid)
+}
 }
 
-for (let i=0;i<= numberOfGrid;i++) {
-    createGrid()
-}
+createDIV(numberOfGrid)
 
-const container2=document.createElement("div");
+const divs=document.querySelectorAll("div");
+divs.forEach(div =>{
+    for (let i=0; i<=numberOfGrid; i++) {
+        const grid=document.createElement("div");
+        grid.classList.add("grid")
+        div.appendChild(grid)
+    }
+})
+
+/*const container2=document.createElement("div");
 const grid2=document.createElement("div")
 grid2.textContent="fuck!"
 console.log(grid2)
-container2.appendChild(grid2)
+container2.appendChild(grid2)*/

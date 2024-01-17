@@ -1,15 +1,16 @@
 body {
-    background-color:aqua;
+    background-color:white;
 }
 
 .container { display: flex;
-    height: 500px;
-    width: 500px;
+            justify-content: center;
+            align-items: center;
 }
 .container .grid {
-    border:2px solid black;
-    margin: 2px;
-    flex: 1 1 0;
+    border:1px solid black;
+    margin: 0px;
+    flex: 1 1 a;
     padding: 0px;
-    height: 10px;
+    height: 20px;
+    width: 20px;
 }
