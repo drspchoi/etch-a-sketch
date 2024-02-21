@@ -1,11 +1,17 @@
-const buttons=document.querySelector('button');
+const initiate=document.querySelector('#btn');
+const end=document.querySelector('#end')
 
+
+function clean() {
+    const containers = document.querySelectorAll('.container');
+    containers.forEach(container => {
+    container.remove()
+});
+}
 
 function createDIV(numberOfGrid) {
-    const containers = document.querySelectorAll('.container');
-        containers.forEach(container => {
-        container.remove()
-    });
+
+    clean()
 
     for (let i=1;i<= numberOfGrid;i++) {
 
@@ -16,7 +22,7 @@ function createDIV(numberOfGrid) {
 }
 
 function createGRID(numberOfGrid) {
-    const divs=document.querySelectorAll("div");
+    const divs=document.querySelectorAll(".container");
     divs.forEach(div =>{
         for (let i=1; i<=numberOfGrid; i++) {
             const grid=document.createElement("div");
@@ -28,17 +34,29 @@ function createGRID(numberOfGrid) {
 
 function number() {
     let numberOfGrid=prompt("how many grids?")
-    console.log(typeof Number(numberOfGrid))
+    //console.log(typeof Number(numberOfGrid))
     const number=Number(numberOfGrid)
     createDIV(number);
     createGRID(number);
     document.querySelectorAll('.grid').forEach (grid => {
-        grid.addEventListener('mouseover',() => {grid.setAttribute('style', "background-color: red")})
-        grid.addEventListener('mouseout',() => {grid.setAttribute('style', "background-color: white")})
-        //grid.onmouseover=function() {grid.setAttribute('style', "background-color: red")}
-        //grid.addEventListener('mouseover',mouseover)
+        grid.addEventListener('mouseover', mouseover)
+        grid.addEventListener('mouseout', ()=> mouseout(grid))
     })
 }
 
+function mouseover () {
+    this.setAttribute('style', "background-color: gray")
+}    
+
+function mouseout (grid) {
+    grid.setAttribute('style', "background-color: white")
+    //document.body.setAttribute('style',"background-color: black")
+}
+
+
+initiate.onclick=function() {number()}
+end.onclick=function() {clean()}
+
 //buttons.addEventListener('click',number)
-buttons.onclick=function() {number()}
+//grid.onmouseover=function() {grid.setAttribute('style', "background-color: red")}
+//grid.addEventListener('mouseover',() => {grid.setAttribute('style', "background-color: gray")})
